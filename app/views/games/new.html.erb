@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Welcome to the longest word-game!</h1>
+  <div class="letters">
+    <% @letters.map do |letter| %>
+      <div class="letter">
+        <%= letter %>
+      </div>
+    <% end %>
+  </div>
+
+  <form action="/score" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters %>
+    <input type="text" name="answer">
+    <input type="submit" value="Play!">
+  </form>
+</div>
